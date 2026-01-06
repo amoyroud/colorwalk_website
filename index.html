@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ColorWalk – See the world in color</title>
+  <meta name="description" content="ColorWalk turns everyday walks into playful color hunts. Find color in unexpected places.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ========================================
+       CSS Variables / Design Tokens
+    ======================================== */
+    :root {
+      /* Colors */
+      --bg-deep: #0C0A0F;
+      --surface: #1E1A22;
+      --surface-glass: rgba(30, 26, 34, 0.85);
+      --text-primary: #FAF7F2;
+      --text-secondary: rgba(250, 247, 242, 0.6);
+      
+      /* Accent Colors */
+      --coral: #FF6B5B;
+      --amber: #FFAA33;
+      --sage: #5BD3A8;
+      --lilac: #B8A9FF;
+      
+      /* Typography */
+      --font-display: 'Sora', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      
+      /* Border Radius */
+      --radius-card: 24px;
+      --radius-pill: 999px;
+    }
+
+    /* ========================================
+       Reset & Base
+    ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+
+    /* ========================================
+       Hero Section
+    ======================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-md);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/home-background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(12, 10, 15, 0.15) 0%,
+        rgba(12, 10, 15, 0.3) 40%,
+        rgba(12, 10, 15, 0.55) 100%
+      );
+      z-index: -1;
+    }
+
+    .hero-card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(250, 247, 242, 0.08);
+      border-radius: var(--radius-card);
+      padding: var(--space-lg) var(--space-md);
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 
+        0 4px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(250, 247, 242, 0.05);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 8vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========================================
+       CTA Button
+    ======================================== */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      height: 56px;
+      padding: 0 var(--space-lg);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      color: var(--bg-deep);
+      background: linear-gradient(135deg, var(--coral), var(--amber));
+      border: none;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 
+        0 8px 24px rgba(255, 107, 91, 0.25),
+        0 2px 8px rgba(255, 107, 91, 0.15);
+      transition: 
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 
+        0 12px 32px rgba(255, 107, 91, 0.35),
+        0 4px 12px rgba(255, 107, 91, 0.2);
+    }
+
+    .cta-button:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ========================================
+       Features Section
+    ======================================== */
+    .features {
+      padding: var(--space-xl) var(--space-md);
+      background: var(--bg-deep);
+      position: relative;
+    }
+
+    .features-heading {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: var(--space-lg);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(250, 247, 242, 0.06);
+      border-radius: 18px;
+      padding: var(--space-md);
+      transition: 
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(250, 247, 242, 0.12);
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      font-size: 1.5rem;
+    }
+
+    .feature-card:nth-child(1) .feature-icon {
+      background: rgba(255, 107, 91, 0.15);
+    }
+
+    .feature-card:nth-child(2) .feature-icon {
+      background: rgba(91, 211, 168, 0.15);
+    }
+
+    .feature-card:nth-child(3) .feature-icon {
+      background: rgba(184, 169, 255, 0.15);
+    }
+
+    .feature-text h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       Responsive
+    ======================================== */
+    @media (min-width: 640px) {
+      .hero-card {
+        padding: var(--space-xl) var(--space-lg);
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        max-width: 360px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+      }
+
+      .feature-card {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-md);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero-card {
+        padding: var(--space-xl);
+      }
+
+      .feature-card {
+        padding: var(--space-md) var(--space-md) var(--space-lg);
+      }
+    }
+
+    /* ========================================
+       Footer
+    ======================================== */
+    .footer {
+      padding: var(--space-xl) var(--space-md) var(--space-lg);
+      background: var(--bg-deep);
+      text-align: center;
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: 
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .instagram-link:hover {
+      color: var(--text-primary);
+      transform: scale(1.1);
+    }
+
+    .instagram-link svg {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    
+    <div class="hero-card">
+      <p class="logo">ColorWalk</p>
+      <h1 class="hero-title">See the world in color</h1>
+      <p class="hero-subtitle">Find beauty in everyday moments. One color at a time.</p>
+      <a href="earlyaccess.html" class="cta-button">
+        Join the Waitlist
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2 class="features-heading">What is ColorWalk?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <div class="feature-text">
+          <h3>Daily color challenge</h3>
+          <p>Get a random color each day and hunt for it in the wild</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📸</div>
+        <div class="feature-text">
+          <h3>Capture & collect</h3>
+          <p>Build a personal palette of colors you've discovered</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🚶</div>
+        <div class="feature-text">
+          <h3>Mindful walks</h3>
+          <p>Notice what you'd normally walk past</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="https://www.instagram.com/colorwalk.club/" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Follow ColorWalk on Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+    </a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Early Access – ColorWalk</title>
+  <meta name="description" content="Join the ColorWalk early access waitlist and help shape the future of mindful color hunting.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ========================================
+       CSS Variables / Design Tokens
+    ======================================== */
+    :root {
+      /* Colors */
+      --bg-deep: #0C0A0F;
+      --surface: #1E1A22;
+      --surface-glass: rgba(30, 26, 34, 0.85);
+      --text-primary: #FAF7F2;
+      --text-secondary: rgba(250, 247, 242, 0.6);
+      
+      /* Accent Colors */
+      --coral: #FF6B5B;
+      --amber: #FFAA33;
+      --sage: #5BD3A8;
+      --lilac: #B8A9FF;
+      
+      /* Typography */
+      --font-display: 'Sora', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      
+      /* Border Radius */
+      --radius-card: 24px;
+      --radius-pill: 999px;
+    }
+
+    /* ========================================
+       Reset & Base
+    ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: linear-gradient(to bottom, #000000, #d4c889);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
+      padding: var(--space-md);
+    }
+
+    /* ========================================
+       Container
+    ======================================== */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-lg) 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ========================================
+       Header
+    ======================================== */
+    .header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: var(--space-lg);
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--text-primary);
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .page-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       Form Container
+    ======================================== */
+    .form-container {
+      background: var(--surface-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(250, 247, 242, 0.08);
+      border-radius: var(--radius-card);
+      padding: var(--space-sm);
+      box-shadow: 
+        0 4px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(250, 247, 242, 0.05);
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-embed {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      border: none;
+      border-radius: 12px;
+    }
+
+    /* ========================================
+       Responsive
+    ======================================== */
+    @media (min-width: 640px) {
+      body {
+        padding: var(--space-lg);
+      }
+
+      .form-container {
+        padding: var(--space-md);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="index.html" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to home
+      </a>
+      
+      <p class="logo">ColorWalk</p>
+      <h1 class="page-title">Early Access</h1>
+      <p class="page-subtitle">Help shape ColorWalk and get earlier access.<br>Even one idea or use-case is valuable.</p>
+    </header>
+
+    <div class="form-container">
+      <iframe 
+        class="form-embed"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScS98TGKOQN9QbmXVaDL346qCRWm07JXClBUU9IH95JZb6ItA/viewform?embedded=true"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">
+        Loading…
+      </iframe>
+    </div>
+  </div>
+</body>
+</html>
