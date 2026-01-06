@@ -79,11 +79,12 @@
     .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: var(--space-lg) 0;
+      padding: var(--space-sm) 0;
       height: 100vh;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      gap: var(--space-md);
     }
 
     /* ========================================
@@ -175,7 +176,77 @@
     ======================================== */
     @media (min-width: 640px) {
       body {
+        padding: var(--space-md);
+      }
+
+      .container {
+        padding: var(--space-md) 0;
+        gap: var(--space-md);
+      }
+
+      .header {
+        margin-bottom: var(--space-md);
+      }
+
+      .back-link {
+        font-size: 0.875rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .back-link svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .logo {
+        font-size: 0.8125rem;
+        margin-bottom: var(--space-xs);
+      }
+
+      .page-title {
+        margin-bottom: var(--space-xs);
+      }
+
+      .page-subtitle {
+        font-size: 0.9375rem;
+      }
+
+      .form-container {
+        padding: var(--space-sm);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      body {
         padding: var(--space-lg);
+      }
+
+      .container {
+        padding: var(--space-lg) 0;
+        gap: var(--space-lg);
+      }
+
+      .back-link {
+        font-size: 0.9375rem;
+        margin-bottom: var(--space-md);
+      }
+
+      .back-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .logo {
+        font-size: 0.875rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .page-title {
+        margin-bottom: var(--space-sm);
+      }
+
+      .page-subtitle {
+        font-size: 1.125rem;
       }
 
       .form-container {
