@@ -322,6 +322,136 @@
     }
 
     /* ========================================
+       Gallery Section
+    ======================================== */
+    .gallery-section {
+      padding: var(--space-xl) var(--space-md);
+      background: var(--bg-deep);
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-image-link {
+      display: block;
+      width: 100%;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(250, 247, 242, 0.06);
+      transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-image-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-image-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+    }
+
+    /* ========================================
+       Instagram Section
+    ======================================== */
+    .instagram-section {
+      padding: var(--space-xl) var(--space-md);
+      background: var(--bg-deep);
+    }
+
+    .instagram-section-heading {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .instagram-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(250, 247, 242, 0.06);
+      border-radius: var(--radius-card);
+      padding: var(--space-xl);
+      text-align: center;
+    }
+
+    .instagram-description {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+
+    .instagram-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      height: 56px;
+      padding: 0 var(--space-lg);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, #833AB4, #E1306C, #FCAF45);
+      border: none;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 
+        0 8px 24px rgba(131, 58, 180, 0.25),
+        0 2px 8px rgba(131, 58, 180, 0.15);
+      transition: 
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .instagram-button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 
+        0 12px 32px rgba(131, 58, 180, 0.35),
+        0 4px 12px rgba(131, 58, 180, 0.2);
+    }
+
+    .instagram-button:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .instagram-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ========================================
        Footer
     ======================================== */
     .footer {
@@ -400,6 +530,51 @@
           <p>Notice what you'd normally walk past</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="gallery-container">
+      <a 
+        href="https://www.instagram.com/valerie_chinese/reels/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="gallery-image-link"
+        aria-label="View ColorWalks on Instagram">
+        <img src="assets/colorwalk-1.png" alt="ColorWalk collage featuring vibrant colors and cultural elements">
+      </a>
+      <a 
+        href="https://www.instagram.com/valerie_chinese/reels/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="gallery-image-link"
+        aria-label="View ColorWalks on Instagram">
+        <img src="assets/colorwalk-2.png" alt="ColorWalk collage featuring red-themed cultural scenes and street food">
+      </a>
+    </div>
+  </section>
+
+  <!-- Instagram Section -->
+  <section class="instagram-section">
+    <h2 class="instagram-section-heading">See ColorWalks in Action</h2>
+    <div class="instagram-container">
+      <p class="instagram-description">
+        Discover thousands of color hunts from the community. See how people around the world are finding beauty in everyday moments.
+      </p>
+      <a 
+        href="https://www.instagram.com/popular/colorwalk/#" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="instagram-button"
+        aria-label="View ColorWalks on Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        View on Instagram
+      </a>
     </div>
   </section>
 
