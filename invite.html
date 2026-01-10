@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join ColorWalk – ColorWalk</title>
+  <meta name="description" content="Join ColorWalk and start discovering colors in your everyday walks. Find beauty in unexpected places.">
+  
+  <!-- Open Graph / Facebook / Twitter / WhatsApp Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://colorwalk.club/invite">
+  <meta property="og:title" content="Join ColorWalk – See the world in color">
+  <meta property="og:description" content="Join ColorWalk and start discovering colors in your everyday walks. Find beauty in unexpected places.">
+  <meta property="og:image" content="https://colorwalk.club/assets/colorwalk-1.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://colorwalk.club/invite">
+  <meta name="twitter:title" content="Join ColorWalk – See the world in color">
+  <meta name="twitter:description" content="Join ColorWalk and start discovering colors in your everyday walks. Find beauty in unexpected places.">
+  <meta name="twitter:image" content="https://colorwalk.club/assets/colorwalk-1.png">
+  
+  <!-- Apple Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ColorWalk">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ========================================
+       CSS Variables / Design Tokens
+    ======================================== */
+    :root {
+      /* Colors */
+      --bg-deep: #0C0A0F;
+      --surface: #1E1A22;
+      --surface-glass: rgba(30, 26, 34, 0.85);
+      --text-primary: #FAF7F2;
+      --text-secondary: rgba(250, 247, 242, 0.6);
+      
+      /* Accent Colors */
+      --coral: #FF6B5B;
+      --amber: #FFAA33;
+      --sage: #5BD3A8;
+      --lilac: #B8A9FF;
+      
+      /* Typography */
+      --font-display: 'Sora', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      
+      /* Border Radius */
+      --radius-card: 24px;
+      --radius-pill: 999px;
+    }
+
+    /* ========================================
+       Reset & Base
+    ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-md);
+    }
+
+    /* ========================================
+       Hero Section
+    ======================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .hero-card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(250, 247, 242, 0.08);
+      border-radius: var(--radius-card);
+      padding: var(--space-lg) var(--space-md);
+      width: 100%;
+      text-align: center;
+      box-shadow: 
+        0 4px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(250, 247, 242, 0.05);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 8vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .referrer-name {
+      color: var(--coral);
+      font-weight: 600;
+    }
+
+    /* ========================================
+       CTA Button
+    ======================================== */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      height: 56px;
+      padding: 0 var(--space-lg);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      color: var(--bg-deep);
+      background: linear-gradient(135deg, var(--coral), var(--amber));
+      border: none;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 
+        0 8px 24px rgba(255, 107, 91, 0.25),
+        0 2px 8px rgba(255, 107, 91, 0.15);
+      transition: 
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+      width: 100%;
+      margin-bottom: var(--space-sm);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 
+        0 12px 32px rgba(255, 107, 91, 0.35),
+        0 4px 12px rgba(255, 107, 91, 0.2);
+    }
+
+    .cta-button:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .fallback-link {
+      display: inline-block;
+      margin-top: var(--space-sm);
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .fallback-link:hover {
+      color: var(--text-primary);
+    }
+
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* ========================================
+       Responsive
+    ======================================== */
+    @media (min-width: 640px) {
+      .hero-card {
+        padding: var(--space-xl) var(--space-lg);
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        max-width: 360px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero-card {
+        padding: var(--space-xl);
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-card">
+      <p class="logo">ColorWalk</p>
+      <h1 class="hero-title" id="title">Join ColorWalk</h1>
+      <p class="hero-subtitle" id="subtitle">
+        Start discovering colors in your everyday walks.
+      </p>
+      <button class="cta-button" id="openAppButton">
+        Open in ColorWalk
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <a href="#" class="fallback-link" id="fallbackLink" style="display: none;">
+        Don't have the app? Get it here →
+      </a>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      // Parse query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const ref = urlParams.get('ref') || '';
+      const from = urlParams.get('from') || '';
+      
+      // Decode the referrer name (in case it's URL encoded)
+      const referrerName = from ? decodeURIComponent(from) : '';
+      
+      // Personalize content
+      const titleEl = document.getElementById('title');
+      const subtitleEl = document.getElementById('subtitle');
+      
+      if (referrerName) {
+        titleEl.textContent = referrerName + ' invited you!';
+        subtitleEl.innerHTML = '<span class="referrer-name">' + escapeHtml(referrerName) + '</span> wants you to join ColorWalk and start discovering colors together.';
+      }
+      
+      // Update Open Graph meta tags dynamically
+      if (referrerName) {
+        document.querySelector('meta[property="og:title"]').setAttribute('content', referrerName + ' invited you to join ColorWalk');
+        document.querySelector('meta[property="og:description"]').setAttribute('content', referrerName + ' wants you to join ColorWalk and start discovering colors in your everyday walks.');
+      }
+      
+      // Build deep link URL
+      const deepLinkParams = new URLSearchParams();
+      if (ref) deepLinkParams.set('ref', ref);
+      if (from) deepLinkParams.set('from', from);
+      
+      const deepLinkUrl = 'colorwalk://invite' + (deepLinkParams.toString() ? '?' + deepLinkParams.toString() : '');
+      
+      // Store IDs for store fallbacks
+      const IOS_APP_ID = '6756232994';
+      const ANDROID_PACKAGE = 'com.antoinemoyroud.colorwalk';
+      
+      // Determine user agent
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isAndroid = /Android/.test(navigator.userAgent);
+      
+      // Store URLs
+      const iosStoreUrl = `https://apps.apple.com/app/id${IOS_APP_ID}`;
+      const androidStoreUrl = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
+      const fallbackUrl = isIOS ? iosStoreUrl : (isAndroid ? androidStoreUrl : '#');
+      
+      // Set up button click handler
+      const openAppButton = document.getElementById('openAppButton');
+      const fallbackLink = document.getElementById('fallbackLink');
+      
+      let appAttempted = false;
+      let fallbackTimer;
+      
+      openAppButton.addEventListener('click', function() {
+        if (appAttempted) {
+          // If already attempted, go directly to store
+          window.location.href = fallbackUrl;
+          return;
+        }
+        
+        appAttempted = true;
+        openAppButton.classList.add('loading');
+        openAppButton.textContent = 'Opening app...';
+        
+        // Try to open the deep link
+        window.location.href = deepLinkUrl;
+        
+        // Set a timer - if user is still here after 2.5 seconds, app didn't open
+        // Show fallback link
+        fallbackTimer = setTimeout(function() {
+          openAppButton.textContent = 'Get ColorWalk';
+          openAppButton.classList.remove('loading');
+          fallbackLink.style.display = 'inline-block';
+          fallbackLink.href = fallbackUrl;
+        }, 2500);
+      });
+      
+      // If user clicks fallback link, clear timer
+      fallbackLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        clearTimeout(fallbackTimer);
+        window.location.href = fallbackUrl;
+      });
+      
+      // Try to open app automatically on page load (optional)
+      // Uncomment if you want automatic deep link attempt
+      // setTimeout(function() {
+      //   if (!appAttempted) {
+      //     window.location.href = deepLinkUrl;
+      //     appAttempted = true;
+      //   }
+      // }, 500);
+      
+      // Utility function to escape HTML
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+    })();
+  </script>
+</body>
+</html>

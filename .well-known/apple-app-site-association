@@ -1,0 +1,9 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "4P4Y5J4S64.com.antoinemoyroud.colorwalk",
+      "paths": ["/invite*", "/join*"]
+    }]
+  }
+}
